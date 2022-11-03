@@ -1,0 +1,16 @@
+import express from "express";
+import { selectSql } from "../database/sql";
+
+const router = express.Router();
+
+router.get('/', async function(req, res) {
+    const departement = await selectSql.getDepartment();
+
+    res.render('select', {
+        title : 'IT 공대',
+        department
+    });
+});
+
+module.exports = router;
+
